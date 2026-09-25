@@ -6,7 +6,7 @@ public class FindAnagrams {
         int[] pCount = new int[26], sCount = new int[26];
         for (char c : p.toCharArray()) pCount[c - 'a']++;
         int windowSize = p.length();
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length; i++) {
             sCount[s.charAt(i) - 'a']++;
             if (i >= windowSize) sCount[s.charAt(i - windowSize) - 'a']--;
             if (Arrays.equals(sCount, pCount)) result.add(i - windowSize + 1);
