@@ -14,6 +14,7 @@ public class TwoSum {
         int[] nums = {1, 4, 6, 8, 10};
         int target = 14;
         int[] res = findTwoSum(nums, target);
-        System.out.println("Found at indices: " + res[0] + ", " + res[1]);
+        if (res[0] != -1) System.out.println("Found at indices: " + res[0] + ", " + res[1]);
+        else System.out.println("No pair found.");
     }
 }

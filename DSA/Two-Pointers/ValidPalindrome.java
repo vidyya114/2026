@@ -10,6 +10,7 @@ public class ValidPalindrome {
         return true;
     }
     public static void main(String[] args) {
-        System.out.println("Is Palindrome: " + isPalindrome("A man, a plan, a canal: Panama"));
+        String word = "A man, a plan, a canal: Panama";
+        System.out.println("Is Palindrome: " + isPalindrome(word));
     }
 }
