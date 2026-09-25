@@ -1,31 +1,19 @@
 import java.util.*;
-
 public class FindAnagrams {
     public static List<Integer> findAnagrams(String s, String p) {
         List<Integer> result = new ArrayList<>();
         if (s.length() < p.length()) return result;
-
-        int[] pCount = new int[26];
-        int[] sCount = new int[26];
-
+        int[] pCount = new int[26], sCount = new int[26];
         for (char c : p.toCharArray()) pCount[c - 'a']++;
-
         int windowSize = p.length();
         for (int i = 0; i < s.length(); i++) {
             sCount[s.charAt(i) - 'a']++;
-            if (i >= windowSize) {
-                sCount[s.charAt(i - windowSize) - 'a']--;
-            }
-            if (Arrays.equals(sCount, pCount)) {
-                result.add(i - windowSize + 1);
-            }
+            if (i >= windowSize) sCount[s.charAt(i - windowSize) - 'a']--;
+            if (Arrays.equals(sCount, pCount)) result.add(i - windowSize + 1);
         }
         return result;
     }
-
     public static void main(String[] args) {
-        String s = "cbaebabacd";
-        String p = "abc";
-        System.out.println("Anagrams found at indices: " + findAnagrams(s, p));
+        System.out.println("Anagrams: " + findAnagrams("cbaebabacd", "abc"));
     }
 }
